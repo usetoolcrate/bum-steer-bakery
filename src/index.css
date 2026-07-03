@@ -1,0 +1,296 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════
+   THE BUM STEER BAKERY — WARM FEMININE THEME
+   Soft pinks, warm cream, playful farmhouse
+   ═══════════════════════════════════════════════ */
+
+@layer base {
+  :root {
+    /* Brand colors from the logo */
+    --brand-pink: #E8A0B0;
+    --brand-pink-dark: #D4849A;
+    --brand-pink-light: #F5D1DA;
+    --brand-blush: #FFF0F3;
+    --brand-cream: #FFFAF5;
+    --brand-warm-white: #FEFCF9;
+    --brand-rose: #C06B80;
+    --brand-brown: #8B6F5E;
+    --brand-brown-light: #A4887A;
+    --brand-charcoal: #3D3535;
+    --brand-text: #4A3F3F;
+    --brand-text-light: #7A6E6E;
+    --brand-gold: #D4A853;
+    --brand-sunflower: #F2C94C;
+
+    /* Font families */
+    --font-display: "Playfair Display", Georgia, serif;
+    --font-body: "Inter", system-ui, sans-serif;
+    --font-script: "Dancing Script", cursive;
+  }
+
+  html, body, #root {
+    background: var(--brand-warm-white) !important;
+    color: var(--brand-text) !important;
+  }
+
+  .dark, :root {
+    --background: var(--brand-warm-white);
+    --foreground: var(--brand-text);
+  }
+}
+
+/* ═══ GLOBAL ═══ */
+* {
+  border-color: rgba(200, 180, 170, 0.2);
+}
+
+::selection {
+  background: var(--brand-pink);
+  color: white;
+}
+
+/* ═══ TYPOGRAPHY ═══ */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.font-script {
+  font-family: var(--font-script);
+  font-weight: 700;
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* ═══ HERO ═══ */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,250,245,0.35) 0%,
+    rgba(255,250,245,0.25) 20%,
+    rgba(255,248,250,0.7) 48%,
+    rgba(255,245,248,0.88) 65%,
+    rgba(255,250,245,0.97) 85%,
+    rgba(255,250,245,1) 100%
+  );
+  z-index: 1;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* ═══ IMAGE BAND ═══ */
+.image-band {
+  position: relative;
+  height: 50vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,248,250,0.82);
+  z-index: 1;
+}
+
+.image-band > img {
+  position: absolute;
+  inset: -10% 0;
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+}
+
+.image-band-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* ═══ GALLERY CARDS ═══ */
+.gallery-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(139, 111, 94, 0.08);
+  transition: all 0.5s cubic-bezier(0.25, 0, 0.25, 1);
+}
+
+.gallery-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(139, 111, 94, 0.15);
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 0, 0.25, 1);
+}
+
+.gallery-card:hover img {
+  transform: scale(1.05);
+}
+
+/* ═══ CTA BUTTONS ═══ */
+.cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  background: var(--brand-pink);
+  color: white;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(232, 160, 176, 0.3);
+}
+
+.cta-primary:hover {
+  background: var(--brand-rose);
+  box-shadow: 0 6px 30px rgba(192, 107, 128, 0.4);
+  transform: translateY(-2px);
+}
+
+.cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: var(--brand-rose);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border: 2px solid var(--brand-pink-light);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.cta-secondary:hover {
+  border-color: var(--brand-pink);
+  background: var(--brand-blush);
+}
+
+/* ═══ ACCENT LINE ═══ */
+.accent-line {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-pink), var(--brand-pink-light));
+  border-radius: 2px;
+}
+
+/* ═══ DECORATIVE DOTS ═══ */
+.dot-pattern {
+  background-image: radial-gradient(circle, var(--brand-pink-light) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ═══ LOGO GLOW ═══ */
+.logo-glow {
+  filter: drop-shadow(0 4px 20px rgba(232, 160, 176, 0.3))
+          drop-shadow(0 2px 8px rgba(0,0,0,0.05));
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 85vh;
+    min-height: 85svh;
+  }
+
+  .hero-section::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(255,250,245,0.4) 0%,
+      rgba(255,250,245,0.3) 18%,
+      rgba(255,248,250,0.78) 44%,
+      rgba(255,245,248,0.92) 62%,
+      rgba(255,250,245,0.98) 82%,
+      rgba(255,250,245,1) 100%
+    );
+  }
+
+  .image-band {
+    height: 40vh;
+  }
+}
+
+/* ═══ SCROLL ANIMATIONS ═══ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: fadeUp 0.7s ease-out both;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ═══ SHIMMER GRADIENT ═══ */
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.shimmer-border::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-pink), var(--brand-sunflower), var(--brand-pink));
+  background-size: 200% 100%;
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+/* ═══ Override header border ═══ */
+header {
+  border: none !important;
+  position: fixed !important;
+  z-index: 50 !important;
+}
