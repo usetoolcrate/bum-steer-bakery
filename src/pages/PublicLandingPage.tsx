@@ -953,6 +953,136 @@ function WhyUsSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════
+   REVIEWS (copied word for word from Facebook)
+   ═══════════════════════════════════════════════════════════ */
+function ReviewsSection() {
+  const [showAll, setShowAll] = useState(false);
+  const reviews = [
+    {
+      name: "Elizabeth C.",
+      text: "I ordered a box of goodies for a celebration to share with my family members. Every single person tried something different and each of them raved about their choices. My husband said the snickerdoodle was the best he's ever had!! Thank you so much!!",
+    },
+    {
+      name: "Courtney D.",
+      text: "Beautiful cupcakes! I ordered 2 dozen cupcakes for a joint birthday party, half axolotl and half trains and we could not be more pleased with how they turned out. The kids loved the designs and they tasted great! Thank you so much again, and we will definitely be using The Bum Steer Bakery in the future 😊",
+    },
+    {
+      name: "Karen M.",
+      text: "Corey has made several cakes / cupcakes for me. I've never been disappointed. She is the absolute best! Very professional and talented. It amazes me how creative she is. I highly recommend Corey with The Bum Steer Bakery for all your sweet treat needs!",
+    },
+    {
+      name: "Alyssa T.",
+      text: "I purchased the funfetti cookies and cream cake pops for my kiddos and they were so good they refused to share a bite with me!! Will definitely purchase more again!!",
+    },
+    {
+      name: "Amy W.",
+      text: "This is the first time I've ordered from this bakery. My experience was beyond amazing! The cake was beautiful and delicious! Corey did an amazing job! I will definitely order from her again.",
+    },
+    {
+      name: "Lucia L.",
+      text: "Corey nailed every single detail I asked for, and I couldn't be happier with how everything turned out!",
+    },
+    {
+      name: "Brittney E.",
+      text: "She made sugar cookies for our gender reveal that were cute and delicious! All of our guests said how good they taste.",
+    },
+    {
+      name: "Heather C.",
+      text: "Absolutely amazing to work with and amazing cakes! It's not just all looks the flavor of the cake and icing is delicious!",
+    },
+    {
+      name: "Mercedes W.",
+      text: "The cookies & cream cakesicles are so good! The macarons are great too🥰",
+    },
+    {
+      name: "Stiffany T.",
+      text: "Delicious cake that's not overly sweet. Great care and attention to detail!",
+    },
+    {
+      name: "Tara C.",
+      text: "The flavor and design of the cake were top tier!",
+    },
+    {
+      name: "Brittany F.",
+      text: "We got two of their mini loaf cakes and they were amazing!! Super nice people too!",
+    },
+    {
+      name: "Candy P.",
+      text: "She makes the best cookies and cakes in town! With love!",
+    },
+    {
+      name: "Alisha H.",
+      text: "The cake I ordered was awesome! Everyone loved it and it was delicious!",
+    },
+    {
+      name: "Amber W.",
+      text: "All of their desserts taste amazing and look awesome! Highly recommend!",
+    },
+    {
+      name: "Judy W.",
+      text: "the cakes for my Great Granddaughter were beautiful and delicious . Definitely recommended this bakery",
+    },
+    {
+      name: "Suzette K.",
+      text: "Ms Racheal 1st birthday cake was beautiful and taste amazing. Will definitely order again.",
+    },
+    {
+      name: "Carol W.",
+      text: "They melt in your mouth very good so good I need to order more",
+    },
+  ];
+  const visible = showAll ? reviews : reviews.slice(0, 6);
+
+  return (
+    <section id="reviews" className="scroll-mt-20 py-20 md:py-28 bg-white">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <FadeIn className="text-center mb-16">
+          <div className="accent-line mx-auto mb-6" />
+          <h2 className="font-[Dancing_Script] text-4xl md:text-5xl text-[var(--brand-charcoal)] mb-4">
+            What Our Customers Say
+          </h2>
+          <p className="text-[var(--brand-text-light)] text-base md:text-lg">
+            100% recommend on Facebook (20 reviews)
+          </p>
+        </FadeIn>
+
+        <div className="flex flex-wrap justify-center gap-6 mb-12">
+          {visible.map((r, i) => (
+            <FadeIn key={r.name} delay={(i % 3) * 100} className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+              <figure className="p-6 md:p-8 bg-[var(--brand-warm-white)] rounded-2xl shadow-[0_2px_12px_rgba(139,111,94,0.05)] h-full">
+                <Heart className="size-6 text-[var(--brand-pink)] mb-4" />
+                <blockquote className="text-[var(--brand-charcoal)] leading-relaxed mb-4">
+                  {r.text}
+                </blockquote>
+                <figcaption className="font-[Playfair_Display] font-bold text-[var(--brand-charcoal)]">
+                  {r.name}
+                </figcaption>
+              </figure>
+            </FadeIn>
+          ))}
+        </div>
+
+        <FadeIn className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          {!showAll && (
+            <button type="button" onClick={() => setShowAll(true)} className="cta-primary">
+              Read More Reviews
+            </button>
+          )}
+          <a
+            href="https://www.facebook.com/profile.php?id=61568907998361"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cta-secondary"
+          >
+            Find Us on Facebook
+          </a>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
    FAQ
    ═══════════════════════════════════════════════════════════ */
 function FAQItem({ q, a }: { q: string; a: string }) {
@@ -1205,6 +1335,7 @@ export function PublicLandingPage() {
         <PricingSection />
         <HowToOrder />
         <WhyUsSection />
+        <ReviewsSection />
         <FAQSection />
         <ContactSection />
         <Footer />
